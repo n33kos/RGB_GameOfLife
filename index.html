@@ -9,117 +9,112 @@
 		<link rel="stylesheet" href="css/style.css">
 	</head>
 	<body>
-		<div class="container margin-bottom-20">
-			<h1 class="hidden-xs hidden-sm">RGB Game of Life</h1>
-			<h2 class="visible-xs visible-sm">RGB Game of Life</h2>
-			<div class="row">
-				<div class="col-md-8">
-					<canvas id="canvas1" width="600" height="600" class="margin-top-30"></canvas>
+		<canvas id="canvas1" width="600" height="600"></canvas>
+		<div class="control-panel col-md-4">
+			<form method="get" class="row multi-columns-row">
+				<input type="hidden" name="isStarted" value="1">
+
+				<div class="col-xs-12 col-sm-12 col-md-12">
+					<label class="margin-top-15">Update Interval (ms)
+						<input type="number" step="any" name="updateInterval" class="form-control input-sm" placeholder="50">
+					</label>
 				</div>
-				<div class="control-panel col-md-4 margin-top-15">
-					<form method="get" class="row multi-columns-row">
-						<input type="hidden" name="isStarted" value="1">
 
-						<div class="col-xs-12 col-sm-12 col-md-12">
-							<label class="margin-top-15">Update Interval (ms)
-								<input type="number" step="any" name="updateInterval" class="form-control input-sm" placeholder="50">
-							</label>
-						</div>
-
-						<div class="col-xs-12 col-sm-12 col-md-6">
-							<label class="margin-top-15">Double Pixels
-								<input type="checkbox" class="pull-left margin-right-5" name="expandPixels2x">
-							</label>
-						</div>
-						<div class="col-xs-12 col-sm-12 col-md-6">
-							<label class="margin-top-15">Quad Pixels
-								<input type="checkbox" class="pull-left margin-right-5" name="expandPixels4x" checked>
-							</label>
-						</div>
-
-
-						<div class="col-xs-12 col-sm-12 col-md-6">
-							<label class="margin-top-15">&radic; Cell Density
-								<input type="number" step="any" name="CellDensity" class="form-control input-sm" placeholder="100">
-							</label>
-						</div>
-						<div class="col-xs-12 col-sm-12 col-md-6">
-							<label class="margin-top-15">Expand Factor
-								<input type="number" step="any" name="expandFactor" class="form-control input-sm" placeholder="4">
-							</label>
-						</div>
-
-
-						<div class="col-xs-12 col-sm-12 col-md-4">
-							<label class="margin-top-15">Red Seed Maximum (max 255)
-								<input type="number" step="any" name="redRandomSeedRange" class="form-control input-sm" placeholder="255">
-							</label>
-						</div>
-						<div class="col-xs-12 col-sm-12 col-md-4">
-							<label class="margin-top-15">Green Seed Maximum (max 255)
-								<input type="number" step="any" name="greenRandomSeedRange" class="form-control input-sm" placeholder="255">
-							</label>
-						</div>
-						<div class="col-xs-12 col-sm-12 col-md-4">
-							<label class="margin-top-15">Blue Seed Maximum (max 255)
-								<input type="number" step="any" name="blueRandomSeedRange" class="form-control input-sm" placeholder="255">
-							</label>
-						</div>
-
-						<div class="col-xs-12 col-sm-12 col-md-6">
-							<label class="margin-top-15">Cyclical Energy
-								<input type="checkbox" class="pull-left margin-right-5" name="cyclicalEnergy" checked>
-							</label>
-						</div>
-						<div class="col-xs-12 col-sm-12 col-md-6">
-							<label class="margin-top-15">Flip Cycle Direction
-								<input type="checkbox" class="pull-left margin-right-5" name="cyclicalEnergyDirection" checked>
-							</label>
-						</div>
-
-						<div class="col-xs-12 col-sm-12 col-md-6">
-							<label class="margin-top-15">Self Influence Increment
-								<input type="number" step="any" name="positiveInfluenceIncrement" class="form-control input-sm" placeholder="50">
-							</label>
-						</div>
-						<div class="col-xs-12 col-sm-12 col-md-6">
-							<label class="margin-top-15">Self Influence Decrement
-								<input type="number" step="any" name="negativeInfluenceDecrement" class="form-control input-sm" placeholder="0">
-							</label>
-						</div>
-						
-
-						<div class="col-xs-12 col-sm-12 col-md-6">
-							<label class="margin-top-15">Neighbor Influence Increment
-								<input type="number" step="any" name="positiveIncrement" class="form-control input-sm" placeholder="1">
-							</label>
-						</div>
-						<div class="col-xs-12 col-sm-12 col-md-6">
-							<label class="margin-top-15">Neighbor Influence Decrement
-								<input type="number" step="any" name="negativeIncrement" class="form-control input-sm" placeholder="0">
-							</label>
-						</div>
-
-						<div class="col-xs-12 col-sm-12 col-md-6">
-							<label class="margin-top-15">Disease Chance %
-								<input type="number" step="any" name="diseasePercentage" class="form-control input-sm" placeholder="1">
-							</label>
-						</div>
-						<div class="col-xs-12 col-sm-12 col-md-6">
-							<label class="margin-top-15">Mutation Chance %
-								<input type="number" step="any" name="mutationPercentage" class="form-control input-sm" placeholder="0.0">
-							</label>
-						</div>
-
-						<div class="col-xs-12 col-sm-12 col-md-12">	
-							<input type="submit" class="btn btn-primary btn-block simulate-button margin-top-30" value="Simulate">
-						</div>
-					</form>
+				<div class="col-xs-12 col-sm-12 col-md-6">
+					<label class="margin-top-15">Double Pixels
+						<input type="checkbox" class="pull-left margin-right-5" name="expandPixels2x">
+					</label>
 				</div>
-			</div>
-			<div class="margin-top-15">
+				<div class="col-xs-12 col-sm-12 col-md-6">
+					<label class="margin-top-15">Quad Pixels
+						<input type="checkbox" class="pull-left margin-right-5" name="expandPixels4x" checked>
+					</label>
+				</div>
+
+
+				<div class="col-xs-12 col-sm-12 col-md-6">
+					<label class="margin-top-15">&radic; Cell Density
+						<input type="number" step="any" name="CellDensity" class="form-control input-sm" placeholder="100">
+					</label>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-6">
+					<label class="margin-top-15">Expand Factor
+						<input type="number" step="any" name="expandFactor" class="form-control input-sm" placeholder="4">
+					</label>
+				</div>
+
+
+				<div class="col-xs-12 col-sm-12 col-md-4">
+					<label class="margin-top-15">Red Seed Maximum (max 255)
+						<input type="number" step="any" name="redRandomSeedRange" class="form-control input-sm" placeholder="255">
+					</label>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-4">
+					<label class="margin-top-15">Green Seed Maximum (max 255)
+						<input type="number" step="any" name="greenRandomSeedRange" class="form-control input-sm" placeholder="255">
+					</label>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-4">
+					<label class="margin-top-15">Blue Seed Maximum (max 255)
+						<input type="number" step="any" name="blueRandomSeedRange" class="form-control input-sm" placeholder="255">
+					</label>
+				</div>
+
+				<div class="col-xs-12 col-sm-12 col-md-6">
+					<label class="margin-top-15">Cyclical Energy
+						<input type="checkbox" class="pull-left margin-right-5" name="cyclicalEnergy" checked>
+					</label>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-6">
+					<label class="margin-top-15">Flip Cycle Direction
+						<input type="checkbox" class="pull-left margin-right-5" name="cyclicalEnergyDirection" checked>
+					</label>
+				</div>
+
+				<div class="col-xs-12 col-sm-12 col-md-6">
+					<label class="margin-top-15">Self Influence Increment
+						<input type="number" step="any" name="positiveInfluenceIncrement" class="form-control input-sm" placeholder="50">
+					</label>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-6">
+					<label class="margin-top-15">Self Influence Decrement
+						<input type="number" step="any" name="negativeInfluenceDecrement" class="form-control input-sm" placeholder="0">
+					</label>
+				</div>
+				
+
+				<div class="col-xs-12 col-sm-12 col-md-6">
+					<label class="margin-top-15">Neighbor Influence Increment
+						<input type="number" step="any" name="positiveIncrement" class="form-control input-sm" placeholder="1">
+					</label>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-6">
+					<label class="margin-top-15">Neighbor Influence Decrement
+						<input type="number" step="any" name="negativeIncrement" class="form-control input-sm" placeholder="0">
+					</label>
+				</div>
+
+				<div class="col-xs-12 col-sm-12 col-md-6">
+					<label class="margin-top-15">Disease Chance %
+						<input type="number" step="any" name="diseasePercentage" class="form-control input-sm" placeholder="1">
+					</label>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-6">
+					<label class="margin-top-15">Mutation Chance %
+						<input type="number" step="any" name="mutationPercentage" class="form-control input-sm" placeholder="0.0">
+					</label>
+				</div>
+
+				<div class="col-xs-12 col-sm-12 col-md-12">	
+					<input type="submit" class="btn btn-primary btn-block simulate-button margin-top-30" value="Simulate">
+				</div>
+			</form>
+			<div class="openCloseTab"></div>
+			<footer class="margin-bottom-20">
+				<h1 class="hidden">RGB Game of Life</h1>
+				<h2 class="margin-top-0 margin-bottom-5">RGB Game of Life</h2>
 				<h6 class="margin-0">by: <a href="http://www.suskitech.org">n33kos</a></h6>
-			</div>
+			</footer>
 		</div>
 	</body>
 </html>

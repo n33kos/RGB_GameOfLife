@@ -1,23 +1,74 @@
-	h1, h2, h3, h4, h5, h6, p{
-		color:#fff;
-	}
-	body{
-		background:#333 url('../img/noise.png') repeat;
-	}
-	canvas{
-		display:block;
-		margin:0 auto;
-		width:100%;
-		background:#111;
-	}
+h1, h2, h3, h4, h5, h6, p{
+	color:#fff;
+}
+body{
+	background:#333 url('../img/noise.png') repeat;
+	overflow:hidden;
+}
+canvas{
+	display:block;
+	margin:0 auto;
+	width:100%;
+	background:#111;
+}
+.control-panel{
+	color:#fff;
+}
+.control-panel:hover, .control-panel:focus{
+}
+.margin-top-15{
+	margin-top: 15px;
+}
+.margin-top-30{
+	margin-top: 30px;
+}
+.control-panel{
+	position:absolute;
+	left:0;
+	top:0;
+	background:#333 url('../img/noise.png') repeat;
+	background:rgba(0,0,0,0.85);
+	transition: all 0.2s;
+}
+.control-panel.collapsed{
+	left:-33.33333%;
+}
+.openCloseTab{
+	position: absolute;
+	height:80px;
+	width:40px;
+	top:0;
+	right:-40px;
+	background:#333 url('../img/noise.png') repeat;
+	background:rgba(0,0,0,0.9);
+	color:white;
+}
+@media(max-width:991px){
 	.control-panel{
-		color:#fff;
+		position:relative;		
+		left:0!important;
+		top:0!important;
 	}
-	.control-panel:hover, .control-panel:focus{
-	}
-	.margin-top-15{
-		margin-top: 15px;
-	}
-	.margin-top-30{
-		margin-top: 30px;
-	}
+}
+.openCloseTab:after{
+	font-family:FontAwesome;
+	content: "\f0d9";
+	line-height: 80px;
+	width: 40px;
+	font-size: 40px;
+	text-align: center;
+	display: block;
+	cursor: pointer;
+}
+.control-panel.collapsed .openCloseTab:after {
+	content: "\f0da";
+}
+footer{
+	position: relative;
+	bottom:0;
+	left: 0;
+	text-shadow: -2px -2px 5px rgba(0,0,0,0.95);
+}
+footer h6 a{
+	color:white;
+}

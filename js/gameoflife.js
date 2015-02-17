@@ -353,11 +353,21 @@ jQuery(document).ready(function(){
 	}
 
 	//Show original image size on click
-	$('canvas').click(function(){
+	$('canvas').on("click focus", function(){
 		if ($('canvas').attr("style") == "width: 100%;"){
 			$('canvas').css("width", CellDensity+'px');
 		}else{
 			$('canvas').css("width","100%");
+		}
+	});
+
+	//Open and close control panel
+	$('.openCloseTab').on("click focus", function(){
+		el = $('.openCloseTab').parent();
+		if(el.hasClass('collapsed')){
+			el.removeClass('collapsed');
+		}else{
+			el.addClass('collapsed');
 		}
 	});
 
