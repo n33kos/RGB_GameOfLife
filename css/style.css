@@ -11,6 +11,11 @@ canvas{
 	width:100%;
 	background:#111;
 }
+@media(max-width:991px){
+	canvas{
+		width:auto!important;
+	}
+}
 .control-panel{
 	color:#fff;
 }
@@ -45,9 +50,12 @@ canvas{
 }
 @media(max-width:991px){
 	.control-panel{
-		position:relative;		
+		position:relative!important;		
 		left:0!important;
 		top:0!important;
+	}
+	.openCloseTab{
+		display:none;
 	}
 }
 .openCloseTab:after{
